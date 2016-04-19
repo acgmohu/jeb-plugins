@@ -1,4 +1,4 @@
-﻿//? name=Decode , shortcut=Ctrl+Shift+D, help=Decode
+//? name=Decode , shortcut=Ctrl+Shift+D, help=Decode
 
 import jeb.api.IScript;
 import jeb.api.JebInstance;
@@ -17,6 +17,7 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import java.io.UnsupportedEncodingException;
 import java.lang.Class;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -1837,6 +1838,7 @@ public class Decode implements IScript {
 
         // "Ljava/lang/String;-><init>([B)V"
         if (aNew.getMethod().getSignature().equals(currentMethodSig)) {
+//            jeb.print(currentMethodSig);
             List arguments = aNew.getArguments();
             if (arguments.size() == 1) {
                 Object o = arguments.get(0);
@@ -1854,8 +1856,14 @@ public class Decode implements IScript {
                         byte[] bytes = new byte[size];
 
                         for (int i = 0; i < size; i++) {
-                            Constant constant = (Constant) initialValues.get(i);
-                            bytes[i] = constant.getByte();
+                            Object obj = initialValues.get(i);
+
+                            if (obj instanceof Constant) {
+                                Constant constant = (Constant) initialValues.get(i);
+                                bytes[i] = constant.getByte();
+                            } else if (obj instanceof Identifier) {
+                                return;
+                            }
                         }
 
                         parent.replaceSubElement(element, cstBuilder.buildString(new String(bytes)));
