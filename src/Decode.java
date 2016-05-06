@@ -1,5 +1,6 @@
 //? name=Decode , shortcut=Ctrl+Shift+D, help=Decode
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import jeb.api.IScript;
 import jeb.api.JebInstance;
 import jeb.api.ast.*;
@@ -118,7 +119,7 @@ public class Decode implements IScript {
 
         // 如果统一为myDecode的话，假如有2个myDecode方法呢？只要参数不一样，都可以直接映射。
         decryptMethodMap = new HashMap<String, String>();
-//        decryptMethodMap.put("Lcom/uu/o/StringEncode;->decode(Ljava/lang/String;)Ljava/lang/String;", "myDecode");
+        decryptMethodMap.put("La/c;->a(Ljava/lang/String;)Ljava/lang/String;", "myDecode");
 //        decryptMethodMap.put("Lcom/android/mtp/rp/MyReceiver;->a([B)Ljava/lang/String;", "myDecode");
 //        decryptMethodMap.put("Lcom/android/mtp/rp/MyService;->a([B)Ljava/lang/String;", "myDecode");
 //        decryptMethodMap.put("Lcom/android/mtp/rp/c;->a([B)Ljava/lang/String;", "myDecode");
@@ -158,33 +159,17 @@ public class Decode implements IScript {
 //    }
 
     public static String myDecode(String value) {
-        int index;
-        byte[] valueArr;
-        int[] intArr;
-        String result = null;
-        try {
-            intArr = new int[]{102, 201, 233, 40, 18, 58, 10, 250, 42, 26, 98, 152, 135, 64, 48, 111};
-            if (value == null) {
-                return result;
+            String v0_1;
+            String v1 = null;
+            try {
+                v0_1 = new String(Base64.decode(value), "UTF-8");
+            }
+            catch(UnsupportedEncodingException v0) {
+                v0.printStackTrace();
+                v0_1 = v1;
             }
 
-            valueArr = value.getBytes("UTF-8");
-            index = 0;
-            while (index < valueArr.length) {
-                for (int i = 0; i < intArr.length; ++i) {
-                    valueArr[index] = ((byte) (valueArr[index] ^ intArr[i]));
-                }
-
-                ++index;
-            }
-
-            result = new String(valueArr, "UTF-8");
-
-        } catch (UnsupportedEncodingException v2) {
-            return null;
-        }
-
-        return result;
+            return v0_1;
     }
 
     public String myDecode() {
@@ -354,6 +339,9 @@ public class Decode implements IScript {
     private void autoDecodeStaticCustomMethod() {
         initStaticAssignmentMap();
         initStaticMethodList();
+        for (String m : staticCustomMethodList) {
+            jeb.print(m);
+        }
         processStaticCustomMethods(staticCustomMethodList);
 
         staticCustomMethodList.clear();
@@ -386,10 +374,14 @@ public class Decode implements IScript {
 
                 if (method.isStatic()) {
                     if (methodSignature.endsWith(")Ljava/lang/String;")) {
+                        jeb.print(methodSignature);
+
                         String argsName = getArgsName(methodSignature);
                         if (supportArgs.contains(argsName)) {
                             Class aClass = findClass(getClassSig(methodSignature));
+                            jeb.print(">>>>>>>>" + methodSignature);
                             if (aClass != null) {
+                                jeb.print("+++++++");
                                 staticCustomMethodList.add(methodSignature);
                             }
                         }
@@ -1952,9 +1944,9 @@ public class Decode implements IScript {
         try {
             return Class.forName(className);
         } catch (ClassNotFoundException e) {
-
+            e.printStackTrace();
         } catch (NoClassDefFoundError e) {
-
+            e.printStackTrace();
         } catch (ExceptionInInitializerError e) {
             e.printStackTrace();
         } catch (Exception e) {

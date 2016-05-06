@@ -25,8 +25,8 @@
       <file leaf-file-name="Decode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Decode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33257142">
-              <caret line="2124" column="18" selection-start-line="2124" selection-start-column="18" selection-end-line="2124" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.5121951">
+              <caret line="1847" column="54" selection-start-line="1847" selection-start-column="54" selection-end-line="1847" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -117,8 +117,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,6 +192,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -489,7 +489,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16080937" sideWeight="0.4943274" order="0" side_tool="false" content_ui="combo" />
@@ -539,6 +539,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Decode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Decode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -913,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Decode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33257142">
-          <caret line="2124" column="18" selection-start-line="2124" selection-start-column="18" selection-end-line="2124" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.5121951">
+          <caret line="1847" column="54" selection-start-line="1847" selection-start-column="54" selection-end-line="1847" selection-end-column="54" />
           <folding />
         </state>
       </provider>
