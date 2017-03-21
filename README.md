@@ -6,7 +6,7 @@ From manifest view jump to the corresponding code.
 
 ## Decode[Ctrl+Shift+D]
 
-auto decode the encrypted strings.
+Auto decode the encrypted strings.
 
 1. Add `-Djava.ext.dirs=./lib` to the start scrit, so jeb could load the jars.
 ```
@@ -21,3 +21,8 @@ auto decode the encrypted strings.
 ## Rename[Ctrl+Shift+R]
 
 renames classes/fields/methods from non-latin names to easier to read names
+
+
+---
+
+This repository will not be updated, because now I use JEB2.
