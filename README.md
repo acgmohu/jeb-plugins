@@ -1,4 +1,5 @@
-# jeb-plugins
+# jeb-plugins<sup>Stop Updating</sup>
+
 
 ## JumpTo[Ctrl+Shift+J]
 
