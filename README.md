@@ -1,4 +1,4 @@
-# jeb-plugins<sup>Stop Updating</sup>
+# jeb-plugins ![project unmaintained](https://img.shields.io/badge/project-unmaintained-red.svg) 
 
 
 ## JumpTo[Ctrl+Shift+J]
